@@ -1,0 +1,12 @@
+<%= form_for :ogloszenie do |f| %>
+<p>Tytuł:</p><%= f.text_field :tytul, size: 50 %>
+<p>Imię:</p><%= f.text_field :imie, size: 35 %>
+<p>Nazwisko:</p><%= f.text_field :nazwisko, size: 35 %>
+<p>Kategoria:</p><%= f.select(:kategoria, ['Online', 'Stacjonarne'], :prompt => 'Wybierz kategorię') %>
+<p>E-mail:</p><%= f.email_field :email, size: 35 %>
+<p>Opis:</p><%= f.text_area :opis, cols:35, rows: 5 %>
+<p>Telefon:</p><%= f.phone_field :telefon %>
+<p>Zdjęcie:</p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %>
+<hr>
+<p><%= f.submit 'Zapisz ogłoszenie' %></p>
+<% end %>
