@@ -31,6 +31,6 @@ class ApplicationController < ActionController::Base
     ad = Ogloszenie.find(params[:id])
     ad.destroy
     
-    redirect_to '/index'
+    render 'deleted'
   end
 end
