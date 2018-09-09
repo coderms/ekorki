@@ -4,7 +4,7 @@ class AdController < ActionController::Base
   protect_from_forgery with: :exception
   
   def add
-    render 'add'
+    render 'add', layout: 'application'
   end
   
   def create
@@ -19,13 +19,13 @@ class AdController < ActionController::Base
     ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
     ad.save
     
-    render 'created'
+    render 'created', layout: 'application'
   end
   
   def edit
     @ogloszenie = Ogloszenie.find(params[:id])
     
-    render 'edit'
+    render 'edit', layout: 'application'
   end
   
   def update
@@ -40,13 +40,13 @@ class AdController < ActionController::Base
     ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
     ad.save
     
-    render 'updated'
+    render 'updated', layout: 'application'
   end
   
   def delete
     ad = Ogloszenie.find(params[:id])
     ad.destroy
     
-    render 'deleted'
+    render 'deleted', layout: 'application'
   end
 end
