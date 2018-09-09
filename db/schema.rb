@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180826134147) do
+ActiveRecord::Schema.define(version: 20180909105840) do
 
   create_table "ogloszenia", force: :cascade do |t|
     t.string "tytul"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180826134147) do
     t.string "nazwisko"
     t.string "email"
     t.binary "photo"
+    t.string "kategoria"
   end
 
 end
