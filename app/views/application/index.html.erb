@@ -2,16 +2,19 @@ Witaj!<br>
 Ilość ogłoszeń: <%= @ads.length %>
 <br><br>
 <% @ads.each_with_index do |ad, index| %>
-<div>Ogłoszenie <%= (index+1) %>: <%= ad.tytul %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/remove/<%= ad.id %>" alt="Usuń">Usuń</a></div>
-<div>Zdjęcie: <img src="/img/<%= ad.id %>"></div>
-<div>Opis: <%= ad.opis %></div>
+<div>Ogłoszenie <%= (index+1) %>: <%= ad.tytul %>&nbsp;&nbsp;&nbsp;<div class="btn-group">
+		<a href="/edit/<%= ad.id %>" class="btn btn-sm btn-outline-secondary">Edytuj</a>
+		<a href="/remove/<%= ad.id %>" class="btn btn-sm btn-outline-secondary">Usuń</a>
+	</div>
+</div>
+<div><img src="/img/<%= ad.id %>"><%= ad.opis %></div>
+<div>Kategoria: <%= ad.kategoria %></div>
 <div>Tel.: <%= ad.telefon %></div>
 <div>E-mail: <%= ad.email %></div>
 <div>Autor: <%= "#{ad.imie} #{ad.nazwisko}" %></div>
 <hr>
 <% end %>
 <br>
-<a href="/add">Dodaj ogłoszenie</a>
+<a href="/add" class="btn btn-primary my-2">Dodaj ogłoszenie</a>
 <br>
 <br>
-Somapro: <%= @something_from_ruby %>

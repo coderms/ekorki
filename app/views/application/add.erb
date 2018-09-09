@@ -7,6 +7,5 @@
 <p>Opis:</p><%= f.text_area :opis, cols:35, rows: 5 %>
 <p>Telefon:</p><%= f.phone_field :telefon %>
 <p>Zdjęcie:</p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %>
-<hr>
-<p><%= f.submit 'Zapisz ogłoszenie' %></p>
+<p><a href="/index" class="btn btn-secondary my-2">Powrót</a> <input name="commit" value="Zapisz ogłoszenie" type="submit" class="btn btn-primary my-2"></p>
 <% end %>
