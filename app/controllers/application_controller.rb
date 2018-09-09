@@ -21,10 +21,32 @@ class ApplicationController < ActionController::Base
     ad.imie = params[:ogloszenie][:imie]
     ad.nazwisko = params[:ogloszenie][:nazwisko]
     ad.email = params[:ogloszenie][:email]
-    ad.photo = read_upload(params[:ogloszenie][:zdjecie].path)
+    ad.kategoria = params[:ogloszenie][:kategoria]
+    ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
     ad.save
     
     render 'created'
+  end
+  
+  def edit
+    @ogloszenie = Ogloszenie.find(params[:id])
+    
+    render 'edit'
+  end
+  
+  def update
+    ad = Ogloszenie.find(params[:id])
+    ad.tytul = params[:ogloszenie][:tytul]
+    ad.opis = params[:ogloszenie][:opis]
+    ad.telefon = params[:ogloszenie][:telefon]
+    ad.imie = params[:ogloszenie][:imie]
+    ad.nazwisko = params[:ogloszenie][:nazwisko]
+    ad.email = params[:ogloszenie][:email]
+    ad.kategoria = params[:ogloszenie][:kategoria]
+    ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
+    ad.save
+    
+    render 'updated'
   end
   
   def delete
