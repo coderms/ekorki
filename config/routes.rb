@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   # Application controller
   get 'index' => 'application#index'
+  get 'login' => 'application#login'
+  post 'login' => 'application#new_session'
+  get 'logout' => 'application#logout'
   
   # Ad controller (Advertisements)
   get 'add' => 'ad#add'
@@ -19,6 +22,8 @@ Rails.application.routes.draw do
   post 'edit/:id' => 'ad#update'
   
   # Register controller
+  get 'register' => 'register#form'
+  post 'register' => 'register#new'
   
   # Data controller
   get 'img/:id' => 'data#image'

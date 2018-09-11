@@ -26,9 +26,12 @@
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Kontakt</h4>
               <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Rejestracja</a></li>
-                <li><a href="#" class="text-white">Logowanie</a></li>
-                <li><a href="#" class="text-white">Kontakt</a></li>
+                <li><a href="/register" class="text-white">Rejestracja</a></li>
+                <li><a href="/login" class="text-white">Logowanie</a></li>
+                <% unless @user_name.nil? %>
+                <li><a href="/logout" class="text-white">Wyloguj</a></li>
+          		<% end %>
+                <li><a href="/contact" class="text-white">Kontakt</a></li>
               </ul>
             </div>
           </div>
@@ -36,10 +39,15 @@
       </div>
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
+          <a href="/index" class="navbar-brand d-flex align-items-center">
             <%= image_tag("music_logo.png", :width => "60", :alt => "Logo KorkiZMuzy") %>&nbsp;&nbsp;
             <strong>KorkiZMuzy.pl</strong>
           </a>
+          <% unless @user_name.nil? %>
+          <h6 class="text-white">
+          	<%= image_tag("user_icon.png", :width => "30", :alt => "User") %>&nbsp;&nbsp;<%= @user_name %>
+          </h6>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -48,15 +56,24 @@
     </header>
 
 	<main role="main">
+		<% unless @errors.nil? %>
+			<div class="alert alert-danger" role="alert">
+				<ul>
+				<% @errors.each_with_index do |error, index| %>
+					<li><%= error['message'] %></div>
+				<% end %>
+				</ul>
+			</div>
+		<% end %>
 		<%= yield %>
 	</main>
 
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">
-          <a href="#">Back to top</a>
+          <a href="#">Powrót</a>
         </p>
-        <p>KorkiZMuzy.pl &copy; Somapro. Wszelkie prawa zastrzeżone.</p>
+        <p><%= Time.new.year %> KorkiZMuzy.pl - Wszelkie prawa zastrzeżone.</p>
         <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
       </div>
     </footer>

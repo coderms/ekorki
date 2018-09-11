@@ -1,0 +1,14 @@
+<%= image_tag("music_logo.png", :width => "100", :alt => "Logo KorkiZMuzy") %>
+<h1 class="h3 mb-3 font-weight-normal">Zaloguj się</h1>
+<%= form_for :uzytkownik do |f| %>
+<label for="uzytkownik_email" class="sr-only">Email address</label>
+<p>E-mail:</p><%= f.email_field :email, size: 35 %>
+<label for="uzytkownik_haslo" class="sr-only">Password</label>
+<p>Hasło:</p><%= f.password_field :haslo, size: 35 %>
+<div class="checkbox mb-3">
+	<label>
+		<input type="checkbox" value="remember-me"> Zapamiętaj logowanie
+	</label>
+</div>
+<input name="commit" value="Zaloguj" type="submit" class="btn btn-primary my-2">
+<% end %>
