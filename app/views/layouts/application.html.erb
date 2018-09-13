@@ -27,8 +27,9 @@
               <h4 class="text-white">Kontakt</h4>
               <ul class="list-unstyled">
                 <li><a href="/register" class="text-white">Rejestracja</a></li>
+                <% if @user_name.nil? %>
                 <li><a href="/login" class="text-white">Logowanie</a></li>
-                <% unless @user_name.nil? %>
+                <% else %>
                 <li><a href="/logout" class="text-white">Wyloguj</a></li>
           		<% end %>
                 <li><a href="/contact" class="text-white">Kontakt</a></li>

@@ -26,7 +26,8 @@ class ApplicationController < ActionController::Base
     end
     if user.haslo == Digest::MD5.hexdigest(params[:uzytkownik][:haslo])
       session[:user_id] = user.id
-      @_current_user = user
+      @user = user
+      cookies[:login] = { :value => user.id, :expires => Time.now + Rails.application.config.login_time }
       logger.debug("User logged in with id: #{session[:user_id]}")
     else
       @errors = [{'message' => 'Nieprawidłowe hasło!'}]
@@ -41,15 +42,5 @@ class ApplicationController < ActionController::Base
   def logout
     @user = session[:user_id] = nil
     redirect_to root_url
-  end
-  
-  private
- 
-  def require_login
-    if current_user.nil?
-      @errors = [{'message' => 'Musisz być zalogowany!'}]
-      logger.debug("Musisz być zalogowany aby dostąpić zaszczytu oglądania tej sekcji")
-      redirect_to login_url
-    end
   end
 end

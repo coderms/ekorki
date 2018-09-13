@@ -1,7 +1,12 @@
 class AdController < ActionController::Base
+  include SessionHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  
+  # Prevent entering pages for not logged users
+  before_action :require_login
+  before_action :populate_session_data
   
   def add
     render 'add', layout: 'application'
