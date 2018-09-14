@@ -1,4 +1,4 @@
-require 'digest/md5'
+require 'digest'
 
 class ApplicationController < ActionController::Base
   include ApplicationHelper, SessionHelper
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
       render 'login'
       return
     end
-    if user.haslo == Digest::MD5.hexdigest(params[:uzytkownik][:haslo])
+    if user.haslo == Digest::SHA256.hexdigest(params[:uzytkownik][:haslo])
       session[:user_id] = user.id
       @user = user
       cookies[:login] = { :value => user.id, :expires => Time.now + Rails.application.config.login_time }
@@ -41,6 +41,7 @@ class ApplicationController < ActionController::Base
   
   def logout
     @user = session[:user_id] = nil
+    cookies.delete :login
     redirect_to root_url
   end
 end

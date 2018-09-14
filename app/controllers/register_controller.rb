@@ -1,7 +1,7 @@
-require 'digest/md5'
+require 'digest'
 
 class RegisterController < ActionController::Base
-  include SessionHelper
+  include ApplicationHelper, SessionHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -23,7 +23,7 @@ class RegisterController < ActionController::Base
     u.imie = params[:uzytkownik][:ksywka]
     u.nazwisko = params[:uzytkownik][:nazwisko]
     u.email = params[:uzytkownik][:email]
-    u.haslo = Digest::MD5.hexdigest(params[:uzytkownik][:haslo])
+    u.haslo = Digest::SHA256.hexdigest(params[:uzytkownik][:haslo])
     u.photo = read_upload(params[:uzytkownik][:zdjecie].path) unless params[:uzytkownik][:zdjecie].nil?
     u.created_at = Date.new
     u.save
