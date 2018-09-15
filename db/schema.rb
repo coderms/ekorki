@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180911121657) do
+ActiveRecord::Schema.define(version: 20180915073821) do
 
   create_table "ogloszenia", force: :cascade do |t|
     t.string "tytul"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20180911121657) do
     t.string "kategoria"
   end
 
+  create_table "plan_zajecs", force: :cascade do |t|
+    t.datetime "data_od"
+    t.datetime "data_do"
+    t.string   "zoom_room"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "uzytkowniks", force: :cascade do |t|
     t.string   "imie"
     t.string   "nazwisko"
@@ -33,5 +42,18 @@ ActiveRecord::Schema.define(version: 20180911121657) do
     t.datetime "updated_at", null: false
     t.binary   "photo"
   end
+
+  create_table "zajecies", force: :cascade do |t|
+    t.string   "temat"
+    t.string   "opis"
+    t.integer  "ilosc_uczniow"
+    t.string   "program"
+    t.integer  "plan_zajecs_id"
+    t.integer  "nauczyciel_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "zajecies", ["plan_zajecs_id"], name: "index_zajecies_on_plan_zajecs_id"
 
 end
