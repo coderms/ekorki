@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  temat: MyString
-  opis: MyString
-  ilosc_uczniow: 1
-  program: MyString
+  temat: 'Rytmika dla początkujących'
+  opis: 'Opis wydarzenia'
+  ilosc_uczniow: 10
+  program: 'Lista zadań w punktach'
+  created_at: 2018-09-11
+  updated_at: 2018-09-11
 
 two:
-  temat: MyString
-  opis: MyString
+  temat: 'Fortepian'
+  opis: 'Duże wydarzenie'
   ilosc_uczniow: 1
-  program: MyString
+  program: 'Zaplanowane podpunkty'
+  created_at: 2018-09-11
+  updated_at: 2018-09-11 
