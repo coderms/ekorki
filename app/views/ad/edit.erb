@@ -6,6 +6,7 @@
 <p>E-mail:</p><%= f.email_field :email, size: 35 %>
 <p>Opis:</p><%= f.text_area :opis, cols:35, rows: 5 %>
 <p>Telefon:</p><%= f.phone_field :telefon %>
-<p>Zdjęcie:</p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %>
+<p>Zdjęcie:</p><img src="/img/<%= @ogloszenie.id %>"></p>
+<p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %></p>
 <p><input name="commit" value="Zaktualizuj" type="submit" class="btn btn-primary my-2"></p>
 <% end %>
