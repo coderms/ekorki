@@ -31,6 +31,32 @@
 </div>
 </div>
 <br>
+<div id="filterWrapper">
+<form id="filter" action="/search" accept-charset="UTF-8" method="post">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+    	<label for="phrase">Fraza:</label>
+    </div>
+    <div class="col">
+    	<input type="text" class="form-control mb-2" id="phrase" placeholder="Tekst do wyszukania">
+    </div>
+    <div class="col-auto">
+    	<label for="category">Kategoria:</label>
+    </div>
+	<div class="col-auto">
+    	<select class="form-control mb-2" id="category">
+      		<option>Wszystkie</option>
+      		<option>Online</option>
+      		<option>Stacjonarne</option>
+    	</select>
+    </div>
+    <div class="col-auto">
+  		<button type="submit" class="btn btn-primary mb-2">Wyszukaj</button>
+    </div>
+  </div>
+</form>
+</div>
+<br>
 <h1 class="cover-heading">Ogłoszenia</h1>
 <div class="album py-5 bg-light">
         <div class="container">

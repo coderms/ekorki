@@ -23,3 +23,14 @@
 	width: 1024px;
 	display: inline-block;
 }
+
+
+#filterWrapper {
+	width: 100%;
+	text-align: center;
+}
+
+#filter {
+	width: 800px;
+	display: inline-block;
+}

@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     @ads = Ogloszenie.all
   end
   
+  def search
+    @ads = Ogloszenie.find_by(tytul: params[:phrase], kategoria: params[:category])
+  end
+  
   def new_session
     user = Uzytkownik.find_by(email: params[:uzytkownik][:email])
     if user.nil?
