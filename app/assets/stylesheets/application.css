@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+#carouselWrapper {
+	width: 100%;
+	text-align: center;
+}
+
+#carouselMain {
+	width: 1024px;
+	display: inline-block;
+}
