@@ -1,0 +1,21 @@
+<div id="filterWrapper">
+	<%= form_for :search, url: '/search' do |f| %>
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+    	<label for="phrase">Fraza:</label>
+    </div>
+    <div class="col">
+    	<%= f.text_field :phrase, size: 100, class: 'form-control mb-2', placeholder: 'Tekst do wyszukania' %>
+    </div>
+    <div class="col-auto">
+    	<label for="category">Kategoria:</label>
+    </div>
+	<div class="col-auto">
+    	<%= f.select(:category, ['Online', 'Stacjonarne'], {:prompt => 'Wszystkie' }, { :class => "form-control mb-2" }) %>
+    </div>
+    <div class="col-auto">
+  		<input type="submit" value="Wyszukaj" name="commit" class="btn btn-primary mb-2">
+    </div>
+  </div>
+<% end %>
+</div>
