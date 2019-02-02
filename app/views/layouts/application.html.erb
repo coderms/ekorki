@@ -46,8 +46,10 @@
           </a>
           <% unless @user_name.nil? %>
           <h6 class="text-white">
-          	<%= image_tag("user_icon.png", :width => "30", :alt => "User") %>&nbsp;&nbsp;<%= @user_name %>
+          	<%= image_tag("user_icon.png", :width => "30", :alt => "User") %>&nbsp;&nbsp; Witaj, <%= @user_name %>
           </h6>
+		  <% else %>
+		  <h6 class="text-white">Witaj!</h6>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
