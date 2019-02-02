@@ -14,7 +14,13 @@ class ApplicationController < ActionController::Base
   end
   
   def search
-    @ads = Ogloszenie.find_by(tytul: params[:phrase], kategoria: params[:category])
+    @phrase = params[:search][:phrase].strip
+    @category = params[:search][:category]
+    @category = "%" if @category == 'Wszystkie'
+    
+    @ads = Ogloszenie.where("tytul like ? and kategoria like ?", "%#{@phrase}%", @category)
+    
+    render 'index'
   end
   
   def new_session

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'logout' => 'application#logout'
   get 'contact' => 'application#contact'
   post 'search' => 'application#search'
+  get 'search' => 'application#index'
   
   # Ad controller (Advertisements)
   get 'add' => 'ad#add'

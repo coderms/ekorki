@@ -5,13 +5,13 @@
     	<label for="phrase">Fraza:</label>
     </div>
     <div class="col">
-    	<%= f.text_field :phrase, size: 100, class: 'form-control mb-2', placeholder: 'Tekst do wyszukania' %>
+    	<%= f.text_field :phrase, size: 100, class: 'form-control mb-2', placeholder: 'Tekst do wyszukania', :value => @phrase %>
     </div>
     <div class="col-auto">
     	<label for="category">Kategoria:</label>
     </div>
 	<div class="col-auto">
-    	<%= f.select(:category, ['Online', 'Stacjonarne'], {:prompt => 'Wszystkie' }, { :class => "form-control mb-2" }) %>
+    	<%= f.select(:category, ['Wszystkie', 'Online', 'Stacjonarne'], {:selected => @category}, {:class => "form-control mb-2"}) %>
     </div>
     <div class="col-auto">
   		<input type="submit" value="Wyszukaj" name="commit" class="btn btn-primary mb-2">
