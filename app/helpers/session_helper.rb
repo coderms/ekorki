@@ -24,6 +24,7 @@ module SessionHelper
     if !current_user.nil?
       u = Uzytkownik.find_by(id: current_user.id)
       @user_name ||= "#{u.imie} #{u.nazwisko}"
+      @name = u.imie
     end
   end
 end

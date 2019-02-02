@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'login' => 'application#login'
   post 'login' => 'application#new_session'
   get 'logout' => 'application#logout'
+  get 'contact' => 'application#contact'
   
   # Ad controller (Advertisements)
   get 'add' => 'ad#add'

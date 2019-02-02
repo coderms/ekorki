@@ -21,18 +21,18 @@
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">O szkole</h4>
-              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+              <p class="text-muted">Szkoła skrzypiec i grania na nerwach:</p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Kontakt</h4>
               <ul class="list-unstyled">
                 <li><a href="/register" class="text-white">Rejestracja</a></li>
+                <li><a href="/contact" class="text-white">Kontakt</a></li>
                 <% if @user_name.nil? %>
                 <li><a href="/login" class="text-white">Logowanie</a></li>
                 <% else %>
                 <li><a href="/logout" class="text-white">Wyloguj</a></li>
           		<% end %>
-                <li><a href="/contact" class="text-white">Kontakt</a></li>
               </ul>
             </div>
           </div>
@@ -42,7 +42,7 @@
         <div class="container d-flex justify-content-between">
           <a href="/index" class="navbar-brand d-flex align-items-center">
             <%= image_tag("music_logo.png", :width => "60", :alt => "Logo KorkiZMuzy") %>&nbsp;&nbsp;
-            <strong>KorkiZMuzy.pl</strong>
+            <strong>Korki z Muzy</strong>
           </a>
           <% unless @user_name.nil? %>
           <h6 class="text-white">
@@ -74,8 +74,8 @@
         <p class="float-right">
           <a href="#">Powrót</a>
         </p>
-        <p><%= Time.new.year %> KorkiZMuzy.pl - Wszelkie prawa zastrzeżone.</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+        <p><%= Time.new.year %> KorkiZMuzy.pl - Stworzone dla Szkoły Muzycznej Weroniki w Mikołowie, ul. Górnicza 10</p>
+        <p>przez firmę Somapro: <a href="http://www.somapro.pl">www.somapro.pl</a>, tel: 660 229 130.</p>
       </div>
     </footer>
 

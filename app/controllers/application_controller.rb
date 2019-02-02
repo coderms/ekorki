@@ -13,9 +13,6 @@ class ApplicationController < ActionController::Base
     @ads = Ogloszenie.all
   end
   
-  def login
-  end
-  
   def new_session
     user = Uzytkownik.find_by(email: params[:uzytkownik][:email])
     if user.nil?
