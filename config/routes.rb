@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'remove/:id' => 'ad#delete'
   get 'edit/:id' => 'ad#edit'
   post 'edit/:id' => 'ad#update'
+  get 'view/:id' => 'ad#view'
   
   # Register controller
   get 'register' => 'register#form'

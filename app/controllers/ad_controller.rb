@@ -54,4 +54,10 @@ class AdController < ActionController::Base
     
     render 'deleted', layout: 'application'
   end
+  
+  def view
+    @ogloszenie = Ogloszenie.find(params[:id])
+    
+    render 'view', layout: 'application'
+  end
 end

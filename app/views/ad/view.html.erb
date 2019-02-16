@@ -1,0 +1,29 @@
+<div class="container">
+<div class="row">
+  <div class="col-sm-8">
+  	<h1 class="cover-heading"><%= @ogloszenie.tytul %></h1>
+	<img src="/img/<%= @ogloszenie.id %>">
+	<p><strong>Autor:</strong><%= "#{@ogloszenie.imie} #{@ogloszenie.nazwisko}" %></p>
+	<p><strong>Kategoria:</strong><%= @ogloszenie.kategoria %></p>
+	<p><strong>E-mail:</strong><%= @ogloszenie.email %></p>
+	<p><strong>Opis:</strong><%= @ogloszenie.opis %></p>
+	<p><strong>Telefon:</strong><%= @ogloszenie.telefon %></p>
+  </div>
+  <div class="col-sm-4">
+  	<h4 class="cover-heading">Wyślij wiadomość:</h4>
+  		<%= form_for :message, url: '/send' do |f| %>
+  <div class="form-row align-items-center">
+	<div class="col-auto">
+    	<%= f.text_area :message, cols: 20, rows: 8, class: "form-control mb-2" %>
+    </div>
+  </div>
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+  		<input type="submit" value="Wyślij" name="commit" class="btn btn-secondary mb-2">
+    </div>
+  </div>
+<% end %>  	
+  </div>
+</div>
+<%= link_to "Powrót", {controller: "application", action: "index"}, class: "btn btn-primary my-2" %>
+</div>
