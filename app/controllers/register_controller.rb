@@ -30,4 +30,9 @@ class RegisterController < ActionController::Base
     
     render 'registered', layout: 'application'
   end
+  
+  def send_email
+    user = {email: 'maciejsowinski@o2.pl', name: @name}
+    MyMailer.registered_email(user)
+  end
 end

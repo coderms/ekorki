@@ -79,4 +79,16 @@ Rails.application.configure do
   
   # Login time
   config.login_time = 3600
+  
+  config.action_mailer.delivery_method = :smtp
+  
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "somapro.home.pl",
+    :port                 => 587,
+    :user_name            => ENV['gmail_username'],
+    :password             => ENV['gmail_password'],
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
 end

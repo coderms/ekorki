@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   # Register controller
   get 'register' => 'register#form'
   post 'register' => 'register#new'
+  get 'send' => 'register#send_email'
   
   # Data controller
   get 'img/:id' => 'data#image'
