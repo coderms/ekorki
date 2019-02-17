@@ -36,7 +36,9 @@ class AdController < ActionController::Base
       puts email_response
     end
     
-    render 'created', layout: 'application'
+    flash[:success] = 'Ogłoszenie zostało stworzone a na twojego maila dostałeś wiadomość'
+    
+    redirect_to root_url
   end
   
   def edit
@@ -57,14 +59,18 @@ class AdController < ActionController::Base
     ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
     ad.save
     
-    render 'updated', layout: 'application'
+    flash[:success] = 'Ogłoszenie zostało zaktualizowane'
+    
+    redirect_to root_url
   end
   
   def delete
     ad = Ogloszenie.find(params[:id])
     ad.destroy
     
-    render 'deleted', layout: 'application'
+    flash[:success] = 'Ogłoszenie zostało usunięte'
+    
+    redirect_to root_url
   end
   
   def view

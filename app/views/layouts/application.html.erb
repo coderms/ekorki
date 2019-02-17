@@ -56,6 +56,9 @@
     </header>
 
 	<main role="main">
+		<% flash.each do |name, msg| %>
+    		<%= content_tag :div, msg, class: "alert alert-info" %>
+  		<% end %>
 		<% unless @errors.nil? %>
 			<div class="alert alert-danger" role="alert">
 				<ul>
