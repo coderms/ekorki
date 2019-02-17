@@ -14,15 +14,27 @@ class AdController < ActionController::Base
   
   def create
     ad = Ogloszenie.new
-    ad.tytul = params[:ogloszenie][:tytul]
+    title = params[:ogloszenie][:tytul]
+    ad.tytul = title
     ad.opis = params[:ogloszenie][:opis]
     ad.telefon = params[:ogloszenie][:telefon]
-    ad.imie = params[:ogloszenie][:imie]
+    imie = params[:ogloszenie][:imie]
+    ad.imie = imie
     ad.nazwisko = params[:ogloszenie][:nazwisko]
-    ad.email = params[:ogloszenie][:email]
+    email = params[:ogloszenie][:email]
+    ad.email = email
     ad.kategoria = params[:ogloszenie][:kategoria]
     ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
-    ad.save
+    if ad.save
+      ad = {
+        email: email, 
+        name: imie, 
+        title: title, 
+        url: add_url(ad.id)
+        }
+      email_response = MyMailer.new_add_email(ad)
+      puts email_response
+    end
     
     render 'created', layout: 'application'
   end
@@ -59,5 +71,11 @@ class AdController < ActionController::Base
     @ogloszenie = Ogloszenie.find(params[:id])
     
     render 'view', layout: 'application'
+  end
+  
+  private
+  
+  def add_url(id)
+    "#{request.host_with_port}/view/#{id}"
   end
 end

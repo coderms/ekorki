@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Witaj <%= @ad[:name] %>!</h1>
+    <p>
+      Twoje ogłoszenie "<%= @ad[:title] %>" zostało dodane do listy ogłoszeń na stronie KorkiZMuzy.pl.
+    </p>
+    <p>
+      Link do ogłoszenia: <a href="<%= @ad[:url] %>"><%= @ad[:url] %></a>.
+    </p>
+    <a href="www.korkizmuzy.pl">www.korkizmuzy.pl</a>
+  </body>
+</html>
