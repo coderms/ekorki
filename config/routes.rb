@@ -28,10 +28,12 @@ Rails.application.routes.draw do
   # Register controller
   get 'register' => 'register#form'
   post 'register' => 'register#new'
-  get 'send' => 'register#send_email'
   
   # Data controller
   get 'img/:id' => 'data#image'
+  
+  # Debug paths
+  # get 'send' => 'register#send_email'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
