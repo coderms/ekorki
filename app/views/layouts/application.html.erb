@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-      <div class="collapse bg-dark" id="navbarHeader">
+      <div class="collapse bg-korki-open" id="navbarHeader">
         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
@@ -23,6 +23,9 @@
             <div class="col-sm-4 offset-md-1 py-4">
               <h4 class="text-white">Kontakt</h4>
               <ul class="list-unstyled">
+              	<% if @user_name.present? %>
+                <li><a href="/add" class="text-white">Dodaj ogłoszenie</a></li>
+          		<% end %>
                 <li><a href="/register" class="text-white">Rejestracja</a></li>
                 <li><a href="/contact" class="text-white">Kontakt</a></li>
                 <% if @user_name.nil? %>
@@ -35,7 +38,7 @@
           </div>
         </div>
       </div>
-      <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="navbar navbar-dark bg-korki-collapsed shadow-sm">
         <div class="container d-flex justify-content-between">
           <a href="/index" class="navbar-brand d-flex align-items-center">
             <%= image_tag("music_logo.png", :width => "60", :alt => "Logo KorkiZMuzy") %>&nbsp;&nbsp;
@@ -49,7 +52,7 @@
 		  <h6 class="text-white">Witaj!</h6>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+		  	<span class="navbar-toggler-icon"></span>
           </button>
         </div>
       </div>
@@ -85,7 +88,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'jquery-3.3.1.slim.min', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'jquery-3.3.1.slim.min', 'data-turbolinks-track' => true %>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 </body>
 </html>
