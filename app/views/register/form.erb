@@ -1,11 +1,29 @@
-<%= image_tag("music_logo.png", :width => "100", :alt => "Logo KorkiZMuzy") %>
-<h1 class="display-4">Rejestracja</h1>
-<%= form_for :uzytkownik do |f| %>
-<p>Imie/Ksywka:</p><%= f.text_field :ksywka, size: 15 %>
-<p>Nazwisko:</p><%= f.text_field :nazwisko, size: 35 %>
-<p>E-mail:</p><%= f.email_field :email, size: 35 %>
-<p>Hasło:</p><%= f.password_field :haslo, size: 35 %>
-<p>Powtórz hasło:</p><%= f.password_field :haslo_tmp, size: 35 %>
-<p>Zdjęcie:</p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %>
-<p><a href="/index" class="btn btn-secondary my-2">Powrót</a> <input name="commit" value="Zarejestruj się!" type="submit" class="btn btn-primary my-2"></p>
-<% end %>
+<div class="container">
+  	<div class="row justify-content-md-center">
+		<div class="col-md-auto">
+			<%= image_tag("music_logo.png", :width => "100", :alt => "Logo KorkiZMuzy") %>
+		</div>
+	</div>
+  	<div class="row justify-content-md-center">
+		<div class="col-md-auto">
+			<h1 class="display-4">Rejestracja</h1>
+		</div>
+	</div>
+  	<div class="row justify-content-md-center">
+		<div class="col-md-auto">
+			<%= form_for :uzytkownik do |f| %>
+			<p>Imie/Ksywka:</p><%= f.text_field :ksywka, size: 15 %>
+			<p>Nazwisko:</p><%= f.text_field :nazwisko, size: 35 %>
+			<p>E-mail:</p><%= f.email_field :email, size: 35 %>
+			<p>Hasło:</p><%= f.password_field :haslo, size: 35 %>
+			<p>Powtórz hasło:</p><%= f.password_field :haslo_tmp, size: 35 %>
+			<p>Zdjęcie:</p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %>
+		</div>
+	</div>
+  	<div class="row justify-content-md-center">
+		<div class="col-md-auto">
+			<p><a href="/index" class="btn btn-secondary my-2">Powrót</a> <input name="commit" value="Zarejestruj się!" type="submit" class="btn btn-primary my-2"></p>
+			<% end %>
+		</div>
+	</div>
+</div>

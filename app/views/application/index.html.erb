@@ -1,6 +1,3 @@
-<div style="float: right">
-</div>
-<br><br><br>
 <div id="carouselWrapper">
 <div id="carouselMain" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -32,7 +29,7 @@
 <br>
 <%= render :partial => "search" %>
 <br>
-<h1 class="cover-heading">Ogłoszenia</h1>
+<h1 class="cover-heading">Ogłoszenia <span class="badge badge-pill badge-info"><%= @ads.length %></span></h1>
 <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
@@ -65,4 +62,3 @@
 		</div>
 	</div>
 </div>
-Ilość ogłoszeń:&nbsp<span class="badge badge-pill badge-info"><%= @ads.length %></span>
