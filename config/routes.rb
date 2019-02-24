@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'edit/:id' => 'ad#edit'
   post 'edit/:id' => 'ad#update'
   get 'view/:id' => 'ad#view'
+  post 'user_message' => 'ad#user_message'
   
   # Register controller
   get 'register' => 'register#form'

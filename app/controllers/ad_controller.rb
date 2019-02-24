@@ -79,6 +79,23 @@ class AdController < ActionController::Base
     render 'view', layout: 'application'
   end
   
+  def user_message
+    @ogloszenie = Ogloszenie.find(params[:message][:id])
+    
+    message = {
+      email: @ogloszenie.email,
+      name: @name,
+      message: params[:message][:message],
+      url: add_url(params[:message][:id])
+    }
+    email_response = MyMailer.user_message_email(message)
+    puts email_response
+    
+    flash[:success] = 'Wiadomość została wysłana'
+    
+    render 'view', layout: 'application'
+  end
+  
   private
   
   def add_url(id)

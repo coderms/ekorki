@@ -1,10 +1,9 @@
 class MyMailer < ActionMailer::Base
   default from: "kontakt@somapro.pl"
   
-  def user_message_email(user, message)
-    @user = user
-    @message = message
-    mail(to: @user[:email], subject: 'Kontakt z ogłoszenia').deliver
+  def user_message_email(message)
+    @msg = message
+    mail(to: @msg[:email], subject: 'Wiadomość z ogłoszenia').deliver
   end
   
   def new_add_email(ad)

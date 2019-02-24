@@ -11,10 +11,11 @@
   </div>
   <div class="col-sm-4">
   	<h4 class="cover-heading">Wyślij wiadomość:</h4>
-  		<%= form_for :message, url: '/send' do |f| %>
+  		<%= form_for :message, url: '/user_message' do |f| %>
   <div class="form-row align-items-center">
 	<div class="col-auto">
     	<%= f.text_area :message, cols: 20, rows: 8, class: "form-control mb-2" %>
+    	<%= f.hidden_field :id, value: @ogloszenie.id %>
     </div>
   </div>
   <div class="form-row align-items-center">
