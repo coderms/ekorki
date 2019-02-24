@@ -5,7 +5,7 @@ class AdController < ActionController::Base
   protect_from_forgery with: :exception
   
   # Prevent entering pages for not logged users
-  before_action :require_login
+  before_action :require_login, except: [:view]
   before_action :populate_session_data
   
   def add
