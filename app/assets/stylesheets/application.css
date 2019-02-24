@@ -34,3 +34,11 @@
 	width: 800px;
 	display: inline-block;
 }
+
+.bg-korki-open {
+	background-color: #00a6a6;
+}
+
+.bg-korki-collapsed {
+	background-color: #008886;
+}
