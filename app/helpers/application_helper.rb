@@ -5,4 +5,8 @@ module ApplicationHelper
       f.read
     end
   end
+  
+  def add_url(id)
+    "#{request.host_with_port}/view/#{id}"
+  end
 end
