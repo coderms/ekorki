@@ -3,21 +3,52 @@
   <div class="col-sm-8">
   	<h1 class="cover-heading"><%= @ogloszenie.tytul %></h1>
 	<img src="/img/<%= @ogloszenie.id %>">
-	<p><strong>Autor:</strong><%= "#{@ogloszenie.imie} #{@ogloszenie.nazwisko}" %></p>
-	<p><strong>Kategoria:</strong><%= @ogloszenie.kategoria %></p>
-	<p><strong>E-mail:</strong><%= @ogloszenie.email %></p>
-	<p><strong>Opis:</strong><%= @ogloszenie.opis %></p>
-	<p><strong>Telefon:</strong><%= @ogloszenie.telefon %></p>
+	<p><strong>Autor:</strong> <%= "#{@ogloszenie.imie} #{@ogloszenie.nazwisko}" %></p>
+	<p><strong>Kategoria:</strong> <%= @ogloszenie.kategoria %></p>
+	<p><strong>E-mail:</strong> <%= @ogloszenie.email %></p>
+	<p><strong>Opis:</strong> <%= @ogloszenie.opis %></p>
+	<p><strong>Telefon:</strong> <%= @ogloszenie.telefon %></p>
+	<%= link_to "Powrót", {controller: "application", action: "index"}, class: "btn btn-primary my-2" %>
   </div>
   <div class="col-sm-4">
   	<h4 class="cover-heading">Wyślij wiadomość:</h4>
   		<%= form_for :message, url: '/user_message' do |f| %>
   <div class="form-row align-items-center">
 	<div class="col-auto">
-    	<%= f.text_area :message, cols: 20, rows: 8, class: "form-control mb-2" %>
+    	<%= f.text_area :message, cols: 20, rows: 8, placeholder: 'Wpisz jej treść', class: "form-control mb-2" %>
     	<%= f.hidden_field :id, value: @ogloszenie.id %>
+  		<h4 class="cover-heading">Zaznacz dostępność:</h4>
+    	<p>Dni:</p>
+    	<div class="row">
+  			<div class="col-7"><%= f.check_box :pon, {}, true, false %> Poniedziałki</div>
+  			<div class="col"><%= f.check_box :wt, {}, true, false %> Wtorki</div>
+		</div>
+    	<div class="row">
+  			<div class="col-7"><%= f.check_box :sr, {}, true, false %> Środy</div>
+  			<div class="col"><%= f.check_box :czw, {}, true, false %>Czwartki</div>
+		</div>
+    	<div class="row">
+  			<div class="col-7"><%= f.check_box :pt, {}, true, false %> Piątki</div>
+  			<div class="col"><%= f.check_box :sob, {}, true, false %> Soboty</div>
+		</div>
+    	<div class="row">
+  			<div class="col-7"><%= f.check_box :nie, {}, true, false %> Niedziele</div>
+  			<div class="col"></div>
+		</div>
+		<br>
+		<p>Godziny:</p>
+    	<div class="row">
+  			<div class="col"><%= f.check_box :rano, {}, true, false %> 8:00 - 12:00</div>
+		</div>
+    	<div class="row">
+  			<div class="col"><%= f.check_box :poludnie, {}, true, false %> 12:00 - 16:00</div>
+		</div>
+    	<div class="row">
+  			<div class="col"><%= f.check_box :wieczor, {}, true, false  %> 16:00 - 20:00</div>
+		</div>
     </div>
   </div>
+  <br>
   <div class="form-row align-items-center">
     <div class="col-auto">
   		<input type="submit" value="Wyślij" name="commit" class="btn btn-secondary mb-2">
@@ -26,5 +57,4 @@
 <% end %>  	
   </div>
 </div>
-<%= link_to "Powrót", {controller: "application", action: "index"}, class: "btn btn-primary my-2" %>
 </div>

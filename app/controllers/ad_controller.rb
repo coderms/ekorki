@@ -1,5 +1,5 @@
 class AdController < ActionController::Base
-  include SessionHelper
+  include SessionHelper, ApplicationHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -82,23 +82,78 @@ class AdController < ActionController::Base
   def user_message
     @ogloszenie = Ogloszenie.find(params[:message][:id])
     
-    message = {
-      email: @ogloszenie.email,
-      name: @name,
-      message: params[:message][:message],
-      url: add_url(params[:message][:id])
-    }
-    email_response = MyMailer.user_message_email(message)
-    puts email_response
+    if !message_set
+      @errors ||= []
+      @errors << {'message' => 'Nie wpisano treści wiadomości'}
+    end
     
-    flash[:success] = 'Wiadomość została wysłana'
+    if !days_set
+      @errors ||= []
+      @errors << {'message' => 'Nie wybrano dni dostępności'}
+    end
+    
+    if !hours_set
+      @errors ||= []
+      @errors << {'message' => 'Nie wybrano godzin dostępności'}
+    end
+    
+    if @errors.nil?
+      message = {
+        email: @ogloszenie.email,
+        name: @name,
+        message: params[:message][:message],
+        url: add_url(params[:message][:id]),
+        days: join_days(params[:message]),
+        hours: join_hours(params[:message])
+      }
+      email_response = MyMailer.user_message_email(message)
+      puts email_response
+    
+      flash[:success] = 'Wiadomość została wysłana'
+    end
     
     render 'view', layout: 'application'
   end
   
   private
   
-  def add_url(id)
-    "#{request.host_with_port}/view/#{id}"
+  def message_set
+    params[:message][:message].present?
+  end
+  
+  def days_set
+    (params[:message][:pon] ||
+    params[:message][:wt] ||
+    params[:message][:sr] ||
+    params[:message][:czw] ||
+    params[:message][:pt] ||
+    params[:message][:sob] ||
+    params[:message][:nie]).present?
+  end
+  
+  def hours_set
+    (params[:message][:rano] ||
+    params[:message][:poludnie] ||
+    params[:message][:wieczor]).present?
+  end
+  
+  def join_days(days)
+    result = ""
+    result += "Poniedziałek, " if days[:pon]
+    result += "Wtorek, " if days[:wt]
+    result += "Środa, " if days[:sr]
+    result += "Czwartek, " if days[:czw]
+    result += "Piątek, " if days[:pt]
+    result += "Sobota, " if days[:sob]
+    result += "Niedziela, " if days[:nie]
+    result
+  end
+  
+  def join_hours(hours)
+    result = ""
+    result += "8:00 - 12:00, " if hours[:rano]
+    result += "12:00 - 16:00, " if hours[:poludnie]
+    result += "16:00 - 20:00, " if hours[:wieczor]
+    result
   end
 end

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'contact' => 'application#contact'
   post 'search' => 'application#search'
   get 'search' => 'application#index'
+  get 'user_message' => 'application#index'
   
   # Ad controller (Advertisements)
   get 'add' => 'ad#add'

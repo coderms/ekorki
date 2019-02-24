@@ -6,6 +6,8 @@
   <body>
     <h1>Użytkownik <%= @msg[:name] %> przysłał ci wiadomość!</h1>
     <p><%= @msg[:message] %></p>
+    <p>Wybrane dni dostępności: <%= @msg[:days] %></p>
+    <p>Wybrane godziny dostępności: <%= @msg[:hours] %></p>
     <p>
       Link do ogłoszenia: <a href="<%= @msg[:url] %>"><%= @msg[:url] %></a>.
     </p>
