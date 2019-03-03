@@ -9,6 +9,8 @@ class AdController < ActionController::Base
   before_action :populate_session_data
   
   def add
+    @uzytkownik_id = current_user.id
+    
     render 'add', layout: 'application'
   end
   
@@ -25,6 +27,7 @@ class AdController < ActionController::Base
     ad.email = email
     ad.kategoria = params[:ogloszenie][:kategoria]
     ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
+    ad.uzytkownik_id = params[:ogloszenie][:uzytkownik_id]
     if ad.save
       ad = {
         email: email, 

@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
     @ads = Ogloszenie.all
   end
   
+  def list
+    @ads = Ogloszenie.where("uzytkownik_id = ?", current_user.id)
+    
+    render 'list', layout: 'application'
+  end
+  
   def search
     @phrase = params[:search][:phrase].strip
     @category = params[:search][:category]

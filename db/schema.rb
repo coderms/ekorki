@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180915073821) do
+ActiveRecord::Schema.define(version: 20190303064128) do
 
   create_table "ogloszenia", force: :cascade do |t|
-    t.string "tytul"
-    t.text   "opis"
-    t.string "telefon"
-    t.string "imie"
-    t.string "nazwisko"
-    t.string "email"
-    t.binary "photo"
-    t.string "kategoria"
+    t.string  "tytul"
+    t.text    "opis"
+    t.string  "telefon"
+    t.string  "imie"
+    t.string  "nazwisko"
+    t.string  "email"
+    t.binary  "photo"
+    t.string  "kategoria"
+    t.integer "uzytkownik_id"
   end
 
   create_table "plan_zajecs", force: :cascade do |t|

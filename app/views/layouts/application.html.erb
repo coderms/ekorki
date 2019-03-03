@@ -24,12 +24,14 @@
               <ul class="list-unstyled">
               	<% if @user_name.present? %>
                 <li><a href="/add" class="text-white">Dodaj ogłoszenie</a></li>
+                <li><a href="/list" class="text-white">Moje ogłoszenia</a></li>
           		<% end %>
                 <li><a href="/register" class="text-white">Rejestracja</a></li>
                 <li><a href="/contact" class="text-white">Kontakt</a></li>
                 <% if @user_name.nil? %>
                 <li><a href="/login" class="text-white">Logowanie</a></li>
                 <% else %>
+                <li><a href="/profil" class="text-white">Profil</a></li>
                 <li><a href="/logout" class="text-white">Wyloguj</a></li>
           		<% end %>
               </ul>
