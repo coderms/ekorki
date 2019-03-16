@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190303064128) do
+ActiveRecord::Schema.define(version: 20190316211553) do
 
   create_table "ogloszenia", force: :cascade do |t|
     t.string  "tytul"
@@ -30,8 +30,12 @@ ActiveRecord::Schema.define(version: 20190303064128) do
     t.datetime "data_do"
     t.string   "zoom_room"
     t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "ogloszenie_id"
+    t.string   "dzien_tyg"
+    t.time     "godzina_od"
+    t.time     "godzina_do"
   end
 
   create_table "uzytkowniks", force: :cascade do |t|

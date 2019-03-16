@@ -15,28 +15,29 @@ class AdController < ActionController::Base
   end
   
   def create
+    user = Uzytkownik.find_by(id: params[:ogloszenie][:uzytkownik_id])
     ad = Ogloszenie.new
     title = params[:ogloszenie][:tytul]
     ad.tytul = title
     ad.opis = params[:ogloszenie][:opis]
     ad.telefon = params[:ogloszenie][:telefon]
-    imie = params[:ogloszenie][:imie]
-    ad.imie = imie
-    ad.nazwisko = params[:ogloszenie][:nazwisko]
-    email = params[:ogloszenie][:email]
-    ad.email = email
+    ad.imie = user.imie
+    ad.nazwisko = user.nazwisko
+    ad.email = user.email
     ad.kategoria = params[:ogloszenie][:kategoria]
     ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
     ad.uzytkownik_id = params[:ogloszenie][:uzytkownik_id]
     if ad.save
-      ad = {
-        email: email, 
-        name: imie, 
+      ad_info = {
+        email: user.email, 
+        name: user.imie, 
         title: title, 
         url: add_url(ad.id)
         }
-      email_response = MyMailer.new_add_email(ad)
+      email_response = MyMailer.new_add_email(ad_info)
       puts email_response
+      
+      save_terms(ad, params[:ogloszenie])
     end
     
     flash[:success] = 'Ogłoszenie zostało stworzone a na twojego maila dostałeś wiadomość'
@@ -158,5 +159,26 @@ class AdController < ActionController::Base
     result += "12:00 - 16:00, " if hours[:poludnie]
     result += "16:00 - 20:00, " if hours[:wieczor]
     result
+  end
+  
+  def save_terms(ad, params)
+      save_term(ad, 'Poniedziałek', params[:pon_time]) if params[:pon]
+      save_term(ad, 'Wtorek', params[:wt_time]) if params[:wt]
+      save_term(ad, 'Środa', params[:sr_time]) if params[:sr]
+      save_term(ad, 'Czwartek', params[:czw_time]) if params[:czw]
+      save_term(ad, 'Piątek', params[:pt_time]) if params[:pt]
+      save_term(ad, 'Sobota', params[:sob_time]) if params[:sob]
+      save_term(ad, 'Niedziela', params[:nie_time]) if params[:nie]
+  end
+  
+  def save_term(ad, day, time)
+    plan = PlanZajec.new
+    plan.ogloszenie_id = ad.id
+    plan.dzien_tyg = day
+    if time.include?(" - ")
+      plan.godzina_od = time.split(" - ")[0]
+      plan.godzina_do = time.split(" - ")[1]
+    end
+    plan.save
   end
 end
