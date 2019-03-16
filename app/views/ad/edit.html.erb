@@ -1,12 +1,83 @@
 <%= form_for :ogloszenie do |f| %>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-7">
+			<h1 class="cover-heading">Dodaj ogłoszenie</h1>
 <p>Tytuł:</p><%= f.text_field :tytul, size: 50 %>
-<p>Imię:</p><%= f.text_field :imie, size: 35 %>
-<p>Nazwisko:</p><%= f.text_field :nazwisko, size: 35 %>
 <p>Kategoria:</p><%= f.select(:kategoria, ['Online', 'Stacjonarne'], :prompt => 'Wybierz kategorię') %>
-<p>E-mail:</p><%= f.email_field :email, size: 35 %>
 <p>Opis:</p><%= f.text_area :opis, cols:35, rows: 5 %>
 <p>Telefon:</p><%= f.phone_field :telefon %>
 <p>Zdjęcie:</p><img src="/img/<%= @ogloszenie.id %>"></p>
 <p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %></p>
 <p><input name="commit" value="Zaktualizuj" type="submit" class="btn btn-primary my-2"></p>
+		</div>
+		<div class="col-sm-5">
+			<h4 class="cover-heading">Zaznacz dostępność:</h4>
+			<div class="row">
+				<div class="col">
+					<%= f.check_box :pon, {}, true, false %> Poniedziałki
+				</div>
+				<div class="col-6">
+					<%= f.hidden_field :pon_time, value: nil %>
+					<%= render :partial => "data_selector", locals: {type: 'pon'} %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<%= f.check_box :wt, {}, true, false %> Wtorki
+				</div>
+				<div class="col-6">
+					<%= f.hidden_field :wt_time, value: nil %>
+					<%= render :partial => "data_selector", locals: {type: 'wt'} %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<%= f.check_box :sr, {}, true, false %> Środy
+				</div>
+				<div class="col-6">
+					<%= f.hidden_field :sr_time, value: nil %>
+					<%= render :partial => "data_selector", locals: {type: 'sr'} %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<%= f.check_box :czw, {}, true, false %> Czwartki
+				</div>
+				<div class="col-6">
+					<%= f.hidden_field :czw_time, value: nil %>
+					<%= render :partial => "data_selector", locals: {type: 'czw'} %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<%= f.check_box :pt, {}, true, false %> Piątki
+				</div>
+				<div class="col-6">
+					<%= f.hidden_field :pt_time, value: nil %>
+					<%= render :partial => "data_selector", locals: {type: 'pt'} %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<%= f.check_box :sob, {}, true, false %> Soboty
+				</div>
+				<div class="col-6">
+					<%= f.hidden_field :sob_time, value: nil %>
+					<%= render :partial => "data_selector", locals: {type: 'sob'} %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<%= f.check_box :nie, {}, true, false %> Niedziele
+				</div>
+				<div class="col-6">
+					<%= f.hidden_field :nie_time, value: nil %>
+					<%= render :partial => "data_selector", locals: {type: 'nie'} %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <% end %>
+<%= javascript_include_tag('dates.js') %>
