@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'search' => 'application#index'
   get 'user_message' => 'application#index'
   get 'list' => 'application#list'
-  
+
   # Ad controller (Advertisements)
   get 'add' => 'ad#add'
   post 'add' => 'ad#create'
@@ -27,14 +27,17 @@ Rails.application.routes.draw do
   post 'edit/:id' => 'ad#update'
   get 'view/:id' => 'ad#view'
   post 'user_message' => 'ad#user_message'
-  
+
   # Register controller
   get 'register' => 'register#form'
   post 'register' => 'register#new'
-  
+  get 'profil' => 'register#profile'
+  post 'profil' => 'register#profile_update'
+
   # Data controller
   get 'img/:id' => 'data#image'
-  
+  get 'img_profile/:id' => 'data#pic'
+
   # Debug paths
   # get 'send' => 'register#send_email'
 
