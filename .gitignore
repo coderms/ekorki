@@ -19,3 +19,4 @@
 *.pyc
 *.pyo
 /vendor/*
+/public/assets/*
