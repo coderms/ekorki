@@ -1,28 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here are the basic steps to run this page on Rails production server:
 
-Things you may want to cover:
+* Ruby version: 2.3.8p459
+* Rails version: 4.2.6
 
-* Ruby version
+* System dependencies: TBD
 
-* System dependencies
+* Configuration:
+RAILS_ENV=production rake assets:precompile
+RAILS_ENV=production rake secret
+# Copy secret to production.rb Ruby file and to SECRET_KEY_BASE environmental variable
 
-* Configuration
-
-* Database creation
-
+* Database: Sqlite3
 * Database initialization
+RAILS_ENV=production rake db:migrate
 
-* How to run the test suite
+* How to run the test suite: TBD
 
-* Services (job queues, cache servers, search engines, etc.)
+* Services (job queues, cache servers, search engines, etc.): TBD
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Deployment instructions:
+SECRET_KEY_BASE=<paste secret here> 
+gmail_username=<email to send from>
+gmail_password=<email password to send from>
