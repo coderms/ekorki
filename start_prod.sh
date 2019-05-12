@@ -1,0 +1,2 @@
+# RAILS_ENV=production rake secret
+SECRET_KEY_BASE=97fddb4e660eca5d583a32d8944ded20268bdd8a3451a8b119543b8cb2ac674c60b55668180d99679ac7f64a338bd154441005785fca66fb2f9e916135bb1b42 RAILS_ENV=production gmail_username=kontakt@somapro.pl gmail_password=1234rewq rails s
