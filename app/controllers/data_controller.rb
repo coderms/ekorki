@@ -12,7 +12,8 @@ class DataController < ActionController::Base
       photo = read_upload(no_image_avail_path)
     end
 
-    render :text => photo
+    # render :text => photo
+    send_data(photo, :type => "image/jpeg", :disposition => 'inline')
   end
 
   def pic
@@ -23,7 +24,8 @@ class DataController < ActionController::Base
       photo = read_upload(no_image_avail_path)
     end
 
-    render :text => photo
+    # render :text => photo
+    send_data(photo, :type => "image/jpeg", :disposition => 'inline')
   end
 
   def no_image_avail_path
