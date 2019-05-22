@@ -1,4 +1,4 @@
-class CreatePlanZajecs < ActiveRecord::Migration
+class CreatePlanZajecs < ActiveRecord::Migration[5.0]
   def change
     create_table :plan_zajecs do |t|
       t.datetime :data_od

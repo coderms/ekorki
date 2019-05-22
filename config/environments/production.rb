@@ -86,11 +86,12 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    :address              => "somapro.home.pl",
+    :address              => "school.railsplayground.net",
     :port                 => 587,
-    :user_name            => ENV['gmail_username'],
-    :password             => ENV['gmail_password'],
+    :user_name            => "kontakt@school.railsplayground.net",
+    :password             => "8mDXUk.y7e0o",
     :authentication       => "plain",
-    :enable_starttls_auto => true
+    :enable_starttls_auto => true,
+    :openssl_verify_mode  => 'none'
   }
 end

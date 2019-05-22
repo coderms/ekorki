@@ -38,12 +38,12 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-    
+
   # Login time
   config.login_time = 60
-  
+
   config.action_mailer.delivery_method = :smtp
-  
+
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "somapro.home.pl",

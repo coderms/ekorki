@@ -20,7 +20,8 @@ class RegisterController < ActionController::Base
       render 'form', layout: 'application'
       return
     end
-    existing_user = Uzytkownik.where("email == ? and id != ?", params[:uzytkownik][:email], current_user.id)
+    # Fix for Railsplaygroud.net
+    existing_user = Uzytkownik.where("email == ?", params[:uzytkownik][:email])
     if (existing_user.any?)
       @errors = [{'message' => 'Użytkownik posiadający ten email już istnieje!'}]
 

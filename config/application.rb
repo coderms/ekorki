@@ -23,7 +23,10 @@ module Ekorki
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # config.active_record.raise_in_transactional_callbacks = true
 
-    config.logger = Logger.new(STDOUT)
+    config.active_record.sqlite3.represent_boolean_as_integer = true
+
+    # config.logger = Logger.new(STDOUT)
+    Rails.logger = ActiveSupport::Logger.new(Rails.root.join("log","production.log"))
     # Rails.logger = Log4r::Logger.new("KorkiZMuzy Log")
   end
 end

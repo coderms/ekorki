@@ -1,4 +1,4 @@
-class CreateZajecies < ActiveRecord::Migration
+class CreateZajecies < ActiveRecord::Migration[5.0]
   def change
     create_table :zajecies do |t|
       t.string :temat

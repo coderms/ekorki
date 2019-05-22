@@ -1,4 +1,4 @@
-class CreateUzytkowniks < ActiveRecord::Migration
+class CreateUzytkowniks < ActiveRecord::Migration[5.0]
   def change
     create_table :uzytkowniks do |t|
       t.string :imie
