@@ -110,7 +110,6 @@ class AdController < ActionController::Base
       message = {
         email: @ogloszenie.email,
         viewer_email: params[:message][:viewer_email],
-        name: @name,
         message: params[:message][:message],
         url: add_url(params[:message][:id]),
         days: join_days(params[:message]),

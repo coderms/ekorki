@@ -4,7 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Użytkownik <%= @msg[:name] %> przysłał ci wiadomość!</h1>
+    <h1>Przysłano ci nową wiadomość!</h1>
+    <p>Użytkownik o e-mailu <%= @msg[:viewer_email] %> pisze:</p>
     <p><%= @msg[:message] %></p>
     <p>Wybrane dni dostępności: <%= @msg[:days] %></p>
     <p>Wybrane godziny dostępności: <%= @msg[:hours] %></p>
