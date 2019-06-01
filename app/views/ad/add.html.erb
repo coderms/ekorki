@@ -30,6 +30,7 @@
 		</div>
 		<div class="col-sm-5">
 			<h4 class="cover-heading">Zaznacz dostępność:</h4>
+			<div class="container availability">
 			<div class="row">
 				<div class="col">
 					<%= f.check_box :pon, {}, true, false %> Poniedziałki
@@ -92,6 +93,7 @@
 					<%= f.hidden_field :nie_time, value: nil %>
 					<%= render :partial => "data_selector", locals: {type: 'nie'} %>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>

@@ -24,7 +24,6 @@
 	display: inline-block;
 }
 
-
 #filterWrapper {
 	width: 100%;
 	text-align: center;
@@ -41,4 +40,13 @@
 
 .bg-korki-collapsed {
 	background-color: #008886;
+}
+
+.ad_image {
+	max-width: 350px;
+}
+
+div.container.availability div.row {
+	margin-top: 5px;
+	margin-bottom: 5px;
 }

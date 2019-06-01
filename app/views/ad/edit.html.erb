@@ -7,12 +7,13 @@
 <p>Kategoria:</p><%= f.select(:kategoria, ['Online', 'Stacjonarne'], :prompt => 'Wybierz kategorię') %>
 <p>Opis:</p><%= f.text_area :opis, cols:35, rows: 5 %>
 <p>Telefon:</p><%= f.phone_field :telefon %>
-<p>Zdjęcie:</p><img src="/img/<%= @ogloszenie.id %>"></p>
+<p>Zdjęcie:</p><img src="/img/<%= @ogloszenie.id %>" class="ad_image">
 <p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %></p>
 <p><input name="commit" value="Zaktualizuj" type="submit" class="btn btn-primary my-2"></p>
 		</div>
 		<div class="col-sm-5">
 			<h4 class="cover-heading">Zaznacz dostępność:</h4>
+			<div class="container availability">
 			<div class="row">
 				<div class="col">
 					<%= f.check_box :pon, {}, true, false %> Poniedziałki
@@ -75,6 +76,7 @@
 					<%= f.hidden_field :nie_time, value: nil %>
 					<%= render :partial => "data_selector", locals: {type: 'nie'} %>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
