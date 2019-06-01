@@ -53,12 +53,13 @@ class AdController < ActionController::Base
 
   def update
     ad = Ogloszenie.find(params[:id])
+    user = Uzytkownik.find_by(id: ad.uzytkownik_id)
     ad.tytul = params[:ogloszenie][:tytul]
     ad.opis = params[:ogloszenie][:opis]
     ad.telefon = params[:ogloszenie][:telefon]
-    ad.imie = params[:ogloszenie][:imie]
-    ad.nazwisko = params[:ogloszenie][:nazwisko]
-    ad.email = params[:ogloszenie][:email]
+    ad.imie = user.imie
+    ad.nazwisko = user.nazwisko
+    ad.email = user.email
     ad.kategoria = params[:ogloszenie][:kategoria]
     ad.photo = read_upload(params[:ogloszenie][:zdjecie].path) unless params[:ogloszenie][:zdjecie].nil?
     ad.save
