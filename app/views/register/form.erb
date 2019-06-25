@@ -12,10 +12,10 @@
 	</div>
   	<div class="row justify-content-md-center">
 		<div class="col-md-auto">
-			<p>Imie/Ksywka:</p><%= f.text_field :ksywka, size: 15 %>
-			<p>Nazwisko:</p><%= f.text_field :nazwisko, size: 35 %>
-			<p>E-mail:</p><%= f.email_field :email, size: 35 %>
-			<p>Hasło:</p><%= f.password_field :haslo, size: 35 %>
+			<p>Imie/Ksywka:</p><%= f.text_field :ksywka, required: true, size: 15 %>
+			<p>Nazwisko:</p><%= f.text_field :nazwisko, required: true, size: 35 %>
+			<p>E-mail:</p><%= f.email_field :email, required: true, size: 35 %>
+			<p>Hasło:</p><%= f.password_field :haslo, required: true, size: 35 %>
 			<p>Powtórz hasło:</p><%= f.password_field :haslo_tmp, size: 35 %>
 			<p>Zdjęcie:</p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %>
 		</div>
