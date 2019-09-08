@@ -1,0 +1,68 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+pl:
+  page_title: "KorkiZMuzy.pl"
+  page_header: "Korki z Muzy"
+  www: "www.korkizmuzy.pl"
+  welcome: "Witaj!"
+  about_school: "O szkole"
+  contact: "Kontakt"
+  intro_text_1: "Szkoła skrzypiec i grania na nerwach."
+  intro_text_2: "Zajęcia dla najmłodszych i korepetycje dla osiągających mistrzostwo"
+  footer_1: "Stworzone dla Szkoły Muzycznej Weroniki w Mikołowie, ul. Górnicza 10A"
+  footer_2_html: "przez firmę Somapro: <a href=\"http://www.somapro.pl\">www.somapro.pl</a>, tel: 660 229 130."
+  up: "Do góry"
+  menu:
+    add: "Dodaj ogłoszenie"
+    list: "Lista ogłoszeń"
+    menu: "Moje ogłoszenia"
+    register: "Rejestracja"
+    contact: "Kontakt"
+    login: "Logowanie"
+    edit: "Edytuj profil"
+    logout: "Wyloguj"
+  email:
+    welcome: "Witaj"
+    your_add: "Twoje ogłoszenie"
+    was_added: "zostało dodane do listy ogłoszeń na stronie "
+    add_link: "Link do ogłoszenia"
+    registering_complete: "Ten email oznacza, że rejestracja twojego konta na stronie KorkiZMuzy.pl powiodła się!"
+    registering_text: "Od teraz możesz logować się, dodawać ogłoszenia i czekać na kontakt od swoich uczniów :-)"
+    message_received: "Przysłano ci nową wiadomość!"
+    days_avail: "Wybrane dni dostępności"
+    hours_avail: "Wybrane godziny dostępności"
+    user_with_email: "Użytkownik o e-mailu"
+    write: "pisze"
+  phrase: "Fraza"
+  category: "Kategoria"
+  search: "Wyszukaj"
+  search_placeholder: "Korepetycje do wyszukania"
+  categories:
+    all: "Wszystkie"
+    online: "Online"
+    stationary: "Stacjonarne"
+  form:
+    login:
+      title: "Zaloguj się"
+      email: "E-mail"
+      passwd: "Hasło"
+      remember: "Zapamiętaj logowanie"

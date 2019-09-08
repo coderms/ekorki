@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-  	<title>KorkiZMuzy.pl</title>
+  	<title><%= t('page_title') %></title>
   	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -17,24 +17,24 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
-              <h4 class="text-white">O szkole</h4>
-              <p class="text-white">Szkoła skrzypiec i grania na nerwach.</p>
-							<p class="text-white">Zajęcia dla najmłodszych i korepetycje dla osiągających mistrzostwo</p>
+              <h4 class="text-white"><%= t('about_school') %></h4>
+              <p class="text-white"><%= t('intro_text_1') %></p>
+							<p class="text-white"><%= t('intro_text_2') %></p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
-              <h4 class="text-white">Kontakt</h4>
+              <h4 class="text-white"><%= t('contact') %></h4>
               <ul class="list-unstyled">
               	<% if @user_name.present? %>
-                <li><a href="/add" class="text-white">Dodaj ogłoszenie</a></li>
-                <li><a href="/list" class="text-white">Moje ogłoszenia</a></li>
+                <li><a href="/add" class="text-white"><%= t('menu.add') %></a></li>
+                <li><a href="/list" class="text-white"><%= t('menu.list') %></a></li>
           		<% end %>
-                <li><a href="/register" class="text-white">Rejestracja</a></li>
-                <li><a href="/contact" class="text-white">Kontakt</a></li>
+                <li><a href="/contact" class="text-white"><%= t('menu.contact') %></a></li>
                 <% if @user_name.nil? %>
-                <li><a href="/login" class="text-white">Logowanie</a></li>
+	              <li><a href="/register" class="text-white"><%= t('menu.register') %></a></li>
+                <li><a href="/login" class="text-white"><%= t('menu.login') %></a></li>
                 <% else %>
-                <li><a href="/profil" class="text-white">Edytuj profil</a></li>
-                <li><a href="/logout" class="text-white">Wyloguj</a></li>
+                <li><a href="/profil" class="text-white"><%= t('menu.edit') %></a></li>
+                <li><a href="/logout" class="text-white"><%= t('menu.logout') %></a></li>
           		<% end %>
               </ul>
             </div>
@@ -45,14 +45,14 @@
         <div class="container d-flex justify-content-between">
           <a href="/index" class="navbar-brand d-flex align-items-center">
             <%= image_tag("music_logo.png", :width => "60", :alt => "Logo KorkiZMuzy") %>&nbsp;&nbsp;
-            <strong>Korki z Muzy</strong>
+            <strong><%= t('page_header') %></strong>
           </a>
           <% unless @user_name.nil? %>
           <h6 class="text-white">
-          	<%= image_tag("user_icon.png", :width => "30", :alt => "User") %>&nbsp;&nbsp; Witaj, <%= @user_name %>
+          	<%= image_tag("user_icon.png", :width => "30", :alt => "User") %>&nbsp;&nbsp; <%= t('welcome') %> <%= @user_name %>
           </h6>
 		  <% else %>
-		  <h6 class="text-white">Witaj!</h6>
+		  <h6 class="text-white"><%= t('welcome') %></h6>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 		  	<span class="navbar-toggler-icon"></span>
@@ -80,10 +80,10 @@
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">
-          <a href="#">Do góry</a>
+          <a href="#"><%= t('up') %></a>
         </p>
-        <p><%= Time.new.year %> KorkiZMuzy.pl - Stworzone dla Szkoły Muzycznej Weroniki w Mikołowie, ul. Górnicza 10</p>
-        <p>przez firmę Somapro: <a href="http://www.somapro.pl">www.somapro.pl</a>, tel: 660 229 130.</p>
+        <p><%= Time.new.year %> <%= t('page_title') %> - <%= t('footer_1') %></p>
+        <p><%= t('footer_2_html') %></p>
       </div>
     </footer>
 

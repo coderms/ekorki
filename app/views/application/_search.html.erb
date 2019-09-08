@@ -2,19 +2,19 @@
 	<%= form_for :search, url: '/search' do |f| %>
   <div class="form-row align-items-center">
     <div class="col-auto">
-    	<label for="phrase">Fraza:</label>
+    	<label for="phrase"><%= t('phrase') %>:</label>
     </div>
     <div class="col">
-    	<%= f.text_field :phrase, size: 100, class: 'form-control mb-2', placeholder: 'Korepetycje do wyszukania', :value => @phrase %>
+    	<%= f.text_field :phrase, size: 100, class: 'form-control mb-2', placeholder: 'search_placeholder', :value => @phrase %>
     </div>
     <div class="col-auto">
-    	<label for="category">Kategoria:</label>
+    	<label for="category"><%= t('category') %>:</label>
     </div>
 	<div class="col-auto">
-    	<%= f.select(:category, ['Wszystkie', 'Online', 'Stacjonarne'], {:selected => @category}, {:class => "form-control mb-2"}) %>
+    	<%= f.select(:category, options_for_select([t('categories.all'), t('categories.online'), t('categories.stationary')]), {:selected => @category}, {:class => "form-control mb-2"}) %>
     </div>
     <div class="col-auto">
-  		<input type="submit" value="Wyszukaj" name="commit" class="btn btn-primary mb-2">
+  		<input type="submit" value="<%= t('search') %>" name="commit" class="btn btn-primary mb-2">
     </div>
   </div>
 <% end %>

@@ -4,14 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Przysłano ci nową wiadomość!</h1>
-    <p>Użytkownik o e-mailu <%= @msg[:viewer_email] %> pisze:</p>
+    <h1>t('email.message_received')</h1>
+    <p>t('email.user_with_email') <%= @msg[:viewer_email] %> t('email.write'):</p>
     <p><%= @msg[:message] %></p>
-    <p>Wybrane dni dostępności: <%= @msg[:days] %></p>
-    <p>Wybrane godziny dostępności: <%= @msg[:hours] %></p>
+    <p>t('email.days_avail'): <%= @msg[:days] %></p>
+    <p>t('email.hours_avail'): <%= @msg[:hours] %></p>
     <p>
-      Link do ogłoszenia: <a href="<%= @msg[:url] %>"><%= @msg[:url] %></a>.
+      t('email.add_link'): <a href="<%= @msg[:url] %>"><%= @msg[:url] %></a>.
     </p>
-    <a href="www.korkizmuzy.pl">www.korkizmuzy.pl</a>
+    <a href="http://www.korkizmuzy.pl">t('www')</a>
   </body>
 </html>

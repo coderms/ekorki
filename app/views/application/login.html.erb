@@ -6,21 +6,18 @@
 	</div>
   	<div class="row justify-content-md-center">
 		<div class="col-md-auto">
-			<h1 class="h3 mb-3 font-weight-normal">Zaloguj się</h1>
+			<h1 class="h3 mb-3 font-weight-normal"><%= t('form.login.title') %></h1>
 		</div>
 	</div>
 	<%= form_for :uzytkownik do |f| %>
 	<div class="row justify-content-md-center">
   		<div class="col-md-auto">
-			<label for="uzytkownik_email" class="sr-only">Email address</label>
-			<p>E-mail:</p><%= f.email_field :email, size: 35 %>
-			<label for="uzytkownik_haslo" class="sr-only">Password</label>
-			<p>Hasło:</p><%= f.password_field :haslo, size: 35 %>
-			<div class="checkbox mb-3">
-				<label>
-					<input type="checkbox" value="remember-me"> Zapamiętaj logowanie
-				</label>
-			</div>
+			<label for="email"><%= t('form.login.email') %>:</label><br>
+			<%= f.email_field :email, size: 35 %><br>
+			<label for="haslo"><%= t('form.login.passwd') %>:</label><br>
+			<%= f.password_field :haslo, size: 35 %><br>
+			<%= f.check_box :remember, {}, "true", "false" %>
+      <label for="remember"><%= t('form.login.remember') %></label>
 		</div>
 	</div>
 	<div class="row justify-content-md-center">

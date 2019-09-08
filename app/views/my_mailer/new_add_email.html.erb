@@ -4,13 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Witaj <%= @ad[:name] %>!</h1>
+    <h1>t('email.welcome') <%= @ad[:name] %>!</h1>
     <p>
-      Twoje ogłoszenie "<%= @ad[:title] %>" zostało dodane do listy ogłoszeń na stronie KorkiZMuzy.pl.
+      t('email.your_add') "<%= @ad[:title] %>" t('email.was_added') t('page_title').
     </p>
     <p>
-      Link do ogłoszenia: <a href="<%= @ad[:url] %>"><%= @ad[:url] %></a>.
+      t('email.add_link'): <a href="<%= @ad[:url] %>"><%= @ad[:url] %></a>.
     </p>
-    <a href="www.korkizmuzy.pl">www.korkizmuzy.pl</a>
+    <a href="http://www.korkizmuzy.pl">t('www')</a>
   </body>
 </html>

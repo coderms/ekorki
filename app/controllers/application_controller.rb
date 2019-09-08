@@ -40,7 +40,10 @@ class ApplicationController < ActionController::Base
     if user.haslo == Digest::SHA256.hexdigest(params[:uzytkownik][:haslo])
       session[:user_id] = user.id
       @user = user
-      cookies[:login] = { :value => user.id, :expires => Time.now + Rails.application.config.login_time }
+      if params[:uzytkownik][:remember] == "true"
+       cookies[:login] = { :value => user.id, :expires => Time.now + Rails.application.config.login_time }
+        logger.debug("Cookie remembered for user: #{user.id}")
+     end
       logger.debug("User logged in with id: #{session[:user_id]}")
     else
       @errors = [{'message' => 'Nieprawidłowe hasło!'}]

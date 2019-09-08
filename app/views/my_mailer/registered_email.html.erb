@@ -4,13 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Witaj <%= @user[:name] %>!</h1>
+    <h1>t('email.welcome') <%= @user[:name] %>!</h1>
     <p>
-      Ten email oznacza, że rejestracja twojego konta na stronie KorkiZMuzy.pl powiodła się!
+      t('email.registering_complete')
     </p>
     <p>
-      Od teraz możesz logować się, dodawać ogłoszenia i czekać na kontakt od swoich uczniów :-)
+      t('email.registering_text')
     </p>
-    <a href="www.korkizmuzy.pl">www.korkizmuzy.pl</a>
+    <a href="http://www.korkizmuzy.pl">t('www')</a>
   </body>
 </html>
