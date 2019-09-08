@@ -2,21 +2,21 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-7">
-			<h1 class="cover-heading">Dodaj ogłoszenie</h1>
-<p>Tytuł:</p><%= f.text_field :tytul, size: 50 %>
-<p>Kategoria:</p><%= f.select(:kategoria, ['Online', 'Stacjonarne'], :prompt => 'Wybierz kategorię') %>
-<p>Opis:</p><%= f.text_area :opis, cols:35, rows: 5 %>
-<p>Telefon:</p><%= f.phone_field :telefon %>
-<p>Zdjęcie:</p><img src="/img/<%= @ogloszenie.id %>" class="ad_image">
+			<h1 class="cover-heading"><%= t('form.edit_adv.edit_label') %></h1>
+<p><%= t('form.edit_adv.title') %>:</p><%= f.text_field :tytul, size: 50 %>
+<p><%= t('category') %>:</p><%= f.select(:kategoria, options_for_select([t('categories.online'), t('categories.stationary')])) %>
+<p><%= t('form.view.desc') %>:</p><%= f.text_area :opis, cols:35, rows: 5 %>
+<p><%= t('form.view.phone') %>:</p><%= f.phone_field :telefon %>
+<p><%= t('form.edit_adv.photo') %>:</p><img src="/img/<%= @ogloszenie.id %>" class="ad_image">
 <p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %></p>
 <p><input name="commit" value="Zaktualizuj" type="submit" class="btn btn-primary my-2"></p>
 		</div>
 		<div class="col-sm-5">
-			<h4 class="cover-heading">Zaznacz dostępność:</h4>
+			<h4 class="cover-heading"><%= t('date.select_avail') %>:</h4>
 			<div class="container availability">
 			<div class="row">
 				<div class="col">
-					<%= f.check_box :pon, {}, true, false %> Poniedziałki
+					<%= f.check_box :pon, {}, true, false %> <%= t('date.mondays') %>
 				</div>
 				<div class="col-6">
 					<%= f.hidden_field :pon_time, value: nil %>
@@ -25,7 +25,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<%= f.check_box :wt, {}, true, false %> Wtorki
+					<%= f.check_box :wt, {}, true, false %> <%= t('date.tuesdays') %>
 				</div>
 				<div class="col-6">
 					<%= f.hidden_field :wt_time, value: nil %>
@@ -34,7 +34,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<%= f.check_box :sr, {}, true, false %> Środy
+					<%= f.check_box :sr, {}, true, false %> <%= t('date.wednesdays') %>
 				</div>
 				<div class="col-6">
 					<%= f.hidden_field :sr_time, value: nil %>
@@ -43,7 +43,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<%= f.check_box :czw, {}, true, false %> Czwartki
+					<%= f.check_box :czw, {}, true, false %> <%= t('date.thursdays') %>
 				</div>
 				<div class="col-6">
 					<%= f.hidden_field :czw_time, value: nil %>
@@ -52,7 +52,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<%= f.check_box :pt, {}, true, false %> Piątki
+					<%= f.check_box :pt, {}, true, false %> <%= t('date.fridays') %>
 				</div>
 				<div class="col-6">
 					<%= f.hidden_field :pt_time, value: nil %>
@@ -61,7 +61,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<%= f.check_box :sob, {}, true, false %> Soboty
+					<%= f.check_box :sob, {}, true, false %> <%= t('date.saturdays') %>
 				</div>
 				<div class="col-6">
 					<%= f.hidden_field :sob_time, value: nil %>
@@ -70,7 +70,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<%= f.check_box :nie, {}, true, false %> Niedziele
+					<%= f.check_box :nie, {}, true, false %> <%= t('date.sundays') %>
 				</div>
 				<div class="col-6">
 					<%= f.hidden_field :nie_time, value: nil %>

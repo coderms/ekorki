@@ -1,12 +1,12 @@
 <div class="dropdown">
 	<button class="btn btn-success dropdown-toggle" type="button" id="dropdown-<%= type %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		Wybierz
+		<%= t('date.select') %>
 	</button>
 	<div class="dropdown-menu" aria-labelledby="dropdown-<%= type %>">
 		<a class="dropdown-item">8:00 - 12:00</a>
 		<a class="dropdown-item">12:00 - 16:00</a>
 		<a class="dropdown-item">16:00 - 20:00</a>
     	<div class="dropdown-divider"></div>
-    	<a class="dropdown-item">Inne godziny</a>
+    	<a class="dropdown-item"><%= t('date.other') %></a>
 	</div>
 </div>

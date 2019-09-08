@@ -2,23 +2,23 @@
 <div class="container">
   	<div class="row justify-content-md-center">
 		<div class="col-md-auto">
-			<h1 class="display-4">Aktualizacja profilu</h1>
+			<h1 class="display-4"><%= t('form.profile.title') %></h1>
 		</div>
 	</div>
   	<div class="row justify-content-md-center">
 		<div class="col-md-auto">
-			<p>Imie/Ksywka:</p><%= f.text_field :imie, size: 15 %>
-			<p>Nazwisko:</p><%= f.text_field :nazwisko, size: 35 %>
-			<p>E-mail:</p><%= f.email_field :email, size: 35 %>
-			<p>Hasło:</p><%= f.password_field :haslo, size: 35 %>
-			<p>Powtórz hasło:</p><%= f.password_field :haslo_tmp, size: 35 %>
-			<p>Zdjęcie:</p><img src="/img_profile/<%= @uzytkownik.id %>" width="115"><br>
-      <%= f.file_field :zdjecie, :message => "Wybierz plik.", accept: 'image/png,image/gif,image/jpeg' %>
+			<p><%= t('form.register.name') %>:</p><%= f.text_field :imie, size: 15 %>
+			<p><%= t('form.register.surname') %>:</p><%= f.text_field :nazwisko, size: 35 %>
+			<p><%= t('form.register.email') %>:</p><%= f.email_field :email, size: 35 %>
+			<p><%= t('form.register.passwd') %>:</p><%= f.password_field :haslo, size: 35 %>
+			<p><%= t('form.register.passwd_repeat') %>:</p><%= f.password_field :haslo_tmp, size: 35 %>
+			<p><%= t('form.register.photo') %>:</p><img src="/img_profile/<%= @uzytkownik.id %>" width="115"><br>
+      <%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %>
 		</div>
 	</div>
   	<div class="row justify-content-md-center">
 		<div class="col-md-auto">
-			<p><a href="/index" class="btn btn-secondary my-2">Powrót</a> <input name="commit" value="Zaktualizuj się" type="submit" class="btn btn-primary my-2"></p>
+			<p><a href="/index" class="btn btn-secondary my-2"><%= t('form.register.back') %></a> <input name="commit" value="<%= t('form.profile.update') %>" type="submit" class="btn btn-primary my-2"></p>
 		</div>
 	</div>
 </div>

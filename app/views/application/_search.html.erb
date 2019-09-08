@@ -5,7 +5,7 @@
     	<label for="phrase"><%= t('phrase') %>:</label>
     </div>
     <div class="col">
-    	<%= f.text_field :phrase, size: 100, class: 'form-control mb-2', placeholder: 'search_placeholder', :value => @phrase %>
+    	<%= f.text_field :phrase, size: 100, class: 'form-control mb-2', placeholder: t('search_placeholder'), :value => @phrase %>
     </div>
     <div class="col-auto">
     	<label for="category"><%= t('category') %>:</label>

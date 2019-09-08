@@ -1,6 +1,6 @@
 <%= render :partial => "search" %>
 <br>
-<h1 class="cover-heading">Moje ogłoszenia <span class="badge badge-pill badge-info"><%= @ads.length %></span></h1>
+<h1 class="cover-heading"><%= t('menu.list') %> <span class="badge badge-pill badge-info"><%= @ads.length %></span></h1>
 <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
@@ -8,7 +8,7 @@
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
               	<a href="/view/<%= ad.id %>">
-                <span class="badge badge-info">Ogłoszenie: <%= (index+1) %></span><br>
+                <span class="badge badge-info"><%= t('add_title') %>: <%= (index+1) %></span><br>
                 <div class="container">
   					<div class="row justify-content-md-center">
 						<div class="col-md-auto">
@@ -19,13 +19,13 @@
                 <div class="card-body">
                 	<p class="card-text"><%= ad.tytul %></p>
                   	<p class="card-text"><%= ad.opis %></p>
-                	<p class="card-text">Kategoria: <%= ad.kategoria %></p>
-                	<p class="card-text">Autor: <%= "#{ad.imie} #{ad.nazwisko}" %></p>
+                	<p class="card-text"><%= t('category') %>: <%= ad.kategoria %></p>
+                	<p class="card-text"><%= t('autor') %>: <%= "#{ad.imie} #{ad.nazwisko}" %></p>
                 	<% if @user_name.present? %>
                   		<div class="d-flex justify-content-between align-items-center">
                   			<div class="btn-group">
-								<a href="/edit/<%= ad.id %>" class="btn btn-sm btn-outline-secondary">Edytuj</a>
-								<a href="/remove/<%= ad.id %>" class="btn btn-sm btn-outline-secondary">Usuń</a>
+								<a href="/edit/<%= ad.id %>" class="btn btn-sm btn-outline-secondary"><%= t('edit') %></a>
+								<a href="/remove/<%= ad.id %>" class="btn btn-sm btn-outline-secondary"><%= t('remove') %></a>
 							</div>
                   		</div>
                   	<% end %>

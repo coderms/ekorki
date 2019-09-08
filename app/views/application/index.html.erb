@@ -4,32 +4,32 @@
     <div class="carousel-item active">
       <%= image_tag("main1.jpg", :class => "d-block w-100", :width => "1024", :alt => "Szkoła Muzyki") %>
         <div class="carousel-caption d-none d-md-block">
-    		<h5>Kształcenie słuchu</h5>
+    		<h5><%= t('carousel_image_1') %></h5>
     		<p></p>
   		</div>
     </div>
     <div class="carousel-item">
       <%= image_tag("main1.jpg", :class => "d-block w-100", :width => "1024", :alt => "Ogłoszenia muzyczne") %>
       <div class="carousel-caption d-none d-md-block">
-    		<h5>Skrzypce</h5>
+    		<h5><%= t('carousel_image_2') %></h5>
     		<p></p>
   		</div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Poprzedni</span>
+    <span class="sr-only"><%= t('prev') %></span>
   </a>
   <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Następny</span>
+    <span class="sr-only"><%= t('next') %></span>
   </a>
 </div>
 </div>
 <br>
 <%= render :partial => "search" %>
 <br>
-<h1 class="cover-heading">Ogłoszenia <span class="badge badge-pill badge-info"><%= @ads.length %></span></h1>
+<h1 class="cover-heading"><%= t('adds_title') %> <span class="badge badge-pill badge-info"><%= @ads.length %></span></h1>
 <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
@@ -37,7 +37,7 @@
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
               	<a href="/view/<%= ad.id %>">
-                <span class="badge badge-info">Ogłoszenie: <%= (index+1) %></span><br>
+                <span class="badge badge-info"><%= t('add_title') %>: <%= (index+1) %></span><br>
                 <div class="container">
   					<div class="row justify-content-md-center">
 						<div class="col-md-auto">
@@ -48,8 +48,8 @@
                 <div class="card-body">
                 	<p class="card-text"><%= ad.tytul %></p>
                   	<p class="card-text"><%= ad.opis %></p>
-                	<p class="card-text">Kategoria: <%= ad.kategoria %></p>
-                	<p class="card-text">Autor: <%= "#{ad.imie} #{ad.nazwisko}" %></p>
+                	<p class="card-text"><%= t('category') %>: <%= ad.kategoria %></p>
+                	<p class="card-text"><%= t('autor') %>: <%= "#{ad.imie} #{ad.nazwisko}" %></p>
                   	</a>
                 </div>
               </div>
