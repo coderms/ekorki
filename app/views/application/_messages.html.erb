@@ -1,0 +1,19 @@
+<main role="main" class="container">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Ostatnie wiadomości</h6>
+<% @wiadomosci.each_with_index do |msg, index| %>
+        <div class="media text-muted pt-3">
+          <%= image_tag("messages.png", :class => "mr-2 rounded", :width => 32, :height => 32, :alt => "Nowa wiadomość") %>
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"><%= msg.email %></strong>
+            <%= msg.tekst %>
+          </p>
+        </div>
+<% end %>
+<% if @uzytkownik_id.present? %>
+        <small class="d-block text-right mt-3">
+          <a href="/messages/<%= @uzytkownik_id %>">Wszystkie wiadomości</a>
+        </small>
+<% end %>
+      </div>
+</main>

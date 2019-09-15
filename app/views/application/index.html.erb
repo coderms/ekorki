@@ -28,9 +28,13 @@
 </div>
 <br>
 <%= render :partial => "search" %>
-<br>
-<h1 class="cover-heading"><%= t('adds_title') %> <span class="badge badge-pill badge-info"><%= @ads.length %></span></h1>
 <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            <h1 class="cover-heading"><%= t('adds_title') %> <span class="badge badge-pill badge-info"><%= @ads.length %></span></h1>
+          </div>
+        </div>
+        <br>
         <div class="container">
           <div class="row">
 <% @ads.each_with_index do |ad, index| %>
@@ -57,4 +61,5 @@
 <% end %>
 		</div>
 	</div>
+  <%= render :partial => "messages" %>
 </div>

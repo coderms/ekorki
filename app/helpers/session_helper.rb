@@ -1,12 +1,12 @@
 module SessionHelper
   def require_login
-    if current_user.nil? 
+    if current_user.nil?
       @errors = [{'message' => 'Musisz być zalogowany!'}]
       logger.debug("Musisz być zalogowany aby dostąpić zaszczytu oglądania tej sekcji")
       redirect_to login_url
     end
   end
-  
+
   def current_user
     if !session[:user_id].nil?
       @user ||= session[:user_id]
@@ -19,12 +19,16 @@ module SessionHelper
     end
     nil
   end
-  
+
   def populate_session_data
     if !current_user.nil?
       u = Uzytkownik.find_by(id: current_user.id)
       @user_name ||= "#{u.imie} #{u.nazwisko}"
       @name = u.imie
     end
+  end
+
+  def is_logged
+    current_user.present?
   end
 end

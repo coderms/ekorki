@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login, only: [:logout]
   before_action :populate_session_data
+  before_action :read_messages
 
   def index
     @ads = Ogloszenie.all
@@ -59,5 +60,13 @@ class ApplicationController < ActionController::Base
     @user = session[:user_id] = nil
     cookies.delete :login
     redirect_to root_url
+  end
+
+  def read_messages
+    @wiadomosci = []
+    if is_logged
+      @wiadomosci = Wiadomosc.where(uzytkownik_id: current_user.id).last(3)
+      @uzytkownik_id = current_user.id
+    end
   end
 end

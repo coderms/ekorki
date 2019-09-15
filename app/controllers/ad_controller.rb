@@ -120,6 +120,13 @@ class AdController < ActionController::Base
       email_response = MyMailer.user_message_email(message)
       puts email_response
 
+      msg = Wiadomosc.new
+      msg.tekst = params[:message][:message]
+      msg.email = params[:message][:viewer_email]
+      msg.uzytkownik_id = current_user.id
+      msg.szczegoly = message.to_json
+      msg.save
+
       flash[:success] = 'Wiadomość została wysłana'
     end
 
