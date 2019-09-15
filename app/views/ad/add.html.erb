@@ -8,7 +8,7 @@
 			<p><%= t('form.view.desc') %>:</p><%= f.text_area :opis, cols:35, rows: 5 %>
 			<p><%= t('form.view.phone') %>:</p><%= f.phone_field :telefon %>
 			<p><%= t('form.edit_adv.photo') %>:</p><%= f.file_field :zdjecie, accept: 'image/png,image/gif,image/jpeg' %><%= f.hidden_field :uzytkownik_id, value: @uzytkownik_id %>
-			<p><a href="/index" class="btn btn-secondary my-2">t('back')</a><input name="commit" value="Zapisz ogłoszenie" type="submit" class="btn btn-primary my-2"></p>
+			<p><a href="/index" class="btn btn-secondary my-2">t('form.add_adv.back')</a><input name="commit" value="t('form.add_adv.save')" type="submit" class="btn btn-primary my-2"></p>
 		</div>
 		<div class="col-sm-5">
 			<h4 class="cover-heading"><%= t('date.select_avail') %>:</h4>
