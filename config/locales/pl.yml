@@ -98,7 +98,6 @@ pl:
       edit_label: "Edytuj ogłoszenie"
     add_adv:
       add_label: "Dodaj ogłoszenie"
-      back: "Powrót"
       save: "Zapisz ogłoszenie"
   prev: "Poprzedni"
   next: "Następny"
